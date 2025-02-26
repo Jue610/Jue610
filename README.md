@@ -1,7 +1,7 @@
 
-|  这个作业属于哪个课程  |                                                                                                         [班级](https://edu.cnblogs.com/campus/gdgy/SoftwareEngineeringClassof2023)                                                                                                          |
+|  这个作业属于哪个课程  |                                                                                                         [23软件工程](https://edu.cnblogs.com/campus/gdgy/SoftwareEngineeringClassof2023)                                                                                                          |
 | :--------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| **这个作业要求在哪里** | [作业要求](https://edu.cnblogs.com/campus/gdgy/SoftwareEngineeringClassof2023/homework/13325#%E5%A4%A7%E5%AE%B6%E5%A5%BD%E5%BE%88%E9%AB%98%E5%85%B4%E5%9C%A8%E8%BF%99%E4%B8%AA%E6%9C%BA%E7%BC%98%E5%B7%A7%E5%90%88%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E8%AE%A4%E8%AF%86%E5%A4%A7%E5%AE%B6) |
+| **这个作业要求在哪里** | [【作业1】自我介绍+软工5问](https://edu.cnblogs.com/campus/gdgy/SoftwareEngineeringClassof2023/homework/13325#%E5%A4%A7%E5%AE%B6%E5%A5%BD%E5%BE%88%E9%AB%98%E5%85%B4%E5%9C%A8%E8%BF%99%E4%B8%AA%E6%9C%BA%E7%BC%98%E5%B7%A7%E5%90%88%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E8%AE%A4%E8%AF%86%E5%A4%A7%E5%AE%B6) |
 |   **这个作业的目标**   |                                                                                                             学习使用 Markdown, 熟练掌握 GitHub 及 Git 的使用方法, 建立个人博客                                                                                                              |
 ### 个人介绍
  :heart: 兴趣爱好
