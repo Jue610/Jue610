@@ -10,6 +10,10 @@ LCS_WEIGHT = 0.5  # LCS权重
 
 #读取文件内容
 def read_file(file_path):
+    import os
+    if not os.path.exists(file_path):
+        print(f"文件 {file_path} 不存在，请检查路径.")
+        sys.exit(1)
     try:
         content = ""
         with open(file_path, 'r', encoding='utf-8') as f:
