@@ -11,9 +11,8 @@ LCS_WEIGHT = 0.5  # LCS权重
 #读取文件内容
 def read_file(file_path):
     import os
-    if not os.path.exists(file_path):
-        print(f"文件 {file_path} 不存在，请检查路径.")
-        sys.exit(1)
+       if not os.path.exists(file_path):
+        raise FileNotFoundError(f"文件 {file_path} 不存在，请检查路径.")
     try:
         content = ""
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -64,6 +63,9 @@ def lcs_similar(seq1, seq2):
 def hybrid_similarity(orig_text, copy_text):
     orig_preprocessed = preprocess(orig_text, use_stopwords=True)
     copy_preprocessed = preprocess(copy_text, use_stopwords=True)
+    # 特殊情况，如果原始文本和抄袭文本都为空
+    if not orig_preprocessed and not copy_preprocessed:
+        return 0.0
     # Jaccard快速初筛
     orig_set = set(orig_preprocessed)
     copy_set = set(copy_preprocessed)
