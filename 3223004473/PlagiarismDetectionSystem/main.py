@@ -37,6 +37,9 @@ def jaccard_similar(set1, set2):
     """Jaccard"""
     intersection = len(set1 & set2)
     union = len(set1 | set2)
+    if union == 0:
+        print("Jaccard计算中，集合的并集为0，可能存在问题.")
+        return 0.0
     return intersection / union if union != 0 else 0.0
 
 
@@ -45,6 +48,9 @@ def cosine_similar(vec1, vec2):
     dot_product = np.dot(vec1, vec2)
     norm1 = np.linalg.norm(vec1)
     norm2 = np.linalg.norm(vec2)
+    if norm1 * norm2 == 0:
+        print("余弦相似度计算中，向量的模长乘积为0，可能存在问题.")
+        return 0.0
     return dot_product / (norm1 * norm2 + 1e-8)  # 防止除以0
 
 
