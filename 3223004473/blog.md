@@ -73,11 +73,12 @@ flowchart TD
 2. ==停用词处理==：在preprocess函数中提供了灵活的停用词处理方式。可以根据use_stopwords参数决定是否使用停用词表来预处理文本。同时，停用词表可以根据具体需求进行扩展。
 ### 三、模块接口部分的性能
 - 性能分析图：
-![alt text](image-1.png)
+![](https://img2024.cnblogs.com/blog/3608332/202503/3608332-20250306173246968-1963013942.png)
+
 
 ### 四、模块部分单元测试
 - 单元测试覆盖率：
-![alt text](image.png)
+![](https://img2024.cnblogs.com/blog/3608332/202503/3608332-20250306173302294-533502674.png)
 
 1. `test_same_text`测试用例
 - 测试`hybrid_similarity`函数。
