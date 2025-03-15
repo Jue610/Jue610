@@ -4,7 +4,7 @@ from fractions import Fraction
 import sys
 import re
 
-
+# 用于构建表达式树
 class Node:
     def __init__(self, type, value=None, operator=None, left=None, right=None):
         self.type = type
@@ -13,13 +13,13 @@ class Node:
         self.left = left
         self.right = right
 
-
+# 化简分数
 def simplify_fraction(numerator, denominator):
     gcd = lambda a, b: a if b == 0 else gcd(b, a % b)
     common = gcd(abs(numerator), abs(denominator))
     return (numerator // common, denominator // common)
 
-
+# 随机生成数字
 def generate_number(r):
     choice = random.choices(['natural', 'fraction', 'mixed'], weights=[3, 2, 2], k=1)[0]
     if choice == 'natural':
@@ -36,7 +36,7 @@ def generate_number(r):
         total_numerator = integer * denominator + numerator
         return Node('number', value=simplify_fraction(total_numerator, denominator))
 
-
+# 生成表达式
 def generate_expression(r, max_ops):
     if max_ops == 0:
         return generate_number(r)
@@ -48,6 +48,7 @@ def generate_expression(r, max_ops):
         right = generate_expression(r, right_ops)
         return Node('operator', operator=op, left=left, right=right)
 
+# 计算表达式的值
 def compute_value(node):
     if node.type == 'number':
         return node.value
@@ -75,7 +76,7 @@ def compute_value(node):
             raise ValueError("Improper fraction")
     return simplify_fraction(numerator, denominator)
 
-
+# 将表达式树转换为字符串形式
 def to_string(node, parent_priority=0):
     if node.type == 'number':
         return fraction_to_string(*node.value)
@@ -87,7 +88,7 @@ def to_string(node, parent_priority=0):
         expr_str = f"({expr_str})"
     return expr_str
 
-
+# 将分数转换为字符串形式
 def fraction_to_string(numerator, denominator):
     if denominator == 1:
         return str(numerator)
@@ -98,7 +99,7 @@ def fraction_to_string(numerator, denominator):
     else:
         return f"{integer}'{remainder}/{denominator}" if remainder != 0 else str(integer)
 
-
+# 规范化处理，任何两道题目不能通过有限次交换+和×左右的算术表达式变换为同一道题目
 def normalize(node):
     if node.type == 'number':
         return node
@@ -120,6 +121,8 @@ def normalize(node):
         return root
     else:
         return Node('operator', operator=node.operator, left=normalize(node.left), right=normalize(node.right))
+
+# 生成指定数量的练习题并计算答案
 def generate_problems(n, r):
     generated = set()
     exercises = []
@@ -148,7 +151,7 @@ def generate_problems(n, r):
         for i, ans in enumerate(answers, 1):
             f.write(f"{i}. {ans}\n")
 
-
+# 将答案字符串解析为`Fraction`对象
 def parse_answer(answer_str):
     answer_str = answer_str.strip()
     if "'" in answer_str:
@@ -162,7 +165,7 @@ def parse_answer(answer_str):
     else:
         return Fraction(int(answer_str), 1)
 
-
+# 将表达式字符串解析为可用于`eval`函数计算的Python表达式字符串
 def parse_expression(expr_str):
     expr_str = expr_str.replace(' ', '').replace('×', '*').replace('÷', '/')
     tokens = re.findall(r"(\d+'\d+/\d+|\d+/\d+|\d+|\+|\-|\*|/|\(|\))", expr_str)
@@ -174,7 +177,7 @@ def parse_expression(expr_str):
             converted.append(convert_number(token))
     return ''.join(converted)
 
-
+# 将数字字符串转换为`Fraction`对象的字符串表示形式
 def convert_number(s):
     if "'" in s:
         mixed, frac = s.split("'", 1)
@@ -186,14 +189,14 @@ def convert_number(s):
     else:
         return f"Fraction({s}, 1)"
 
-
+# 计算解析后的表达式字符串的值
 def evaluate_expression(py_expr):
     try:
         return eval(py_expr, {'Fraction': Fraction})
     except:
         return None
 
-
+# 检查答案
 def check_answers(exercise_file, answer_file):
     correct = []
     wrong = []
