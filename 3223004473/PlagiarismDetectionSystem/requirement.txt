@@ -1,3 +1,4 @@
 1. 程序使用的库为jieba，numpy ，difflib，unittest，cProfile。
 2. 入口文件为main.py，命令行参数请输入：python main.py [原文文件] [抄袭版论文的文件] [答案文件]，保证每个参数以空格隔开，文件路径中不含有空格。例如：python main.py C:\Users\z\Desktop\PlagiarismDetectionSystem\orig.txt C:\Users\z\Desktop\PlagiarismDetectionSystem\orig_0.8_add.txt C:\Users\z\Desktop\PlagiarismDetectionSystem\orig_ans.txt
 3. 查重率结果将输出到orig ans.txt中。
+4. 性能分析使用命令行参数： snakeviz profile.prof  打开浏览器观看。
